@@ -3975,7 +3975,11 @@ function create_fragment$5(ctx) {
 					},
 					"title": "Rachael Sales Photography"
 				},
-				site_nav: [],
+				site_nav: [
+					{
+						"link": { "label": "Contact Me", "url": "#contact" }
+					}
+				],
 				footer_links: [
 					{
 						"link": { "url": "/work", "label": "Work" }

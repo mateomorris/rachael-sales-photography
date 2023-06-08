@@ -4282,7 +4282,7 @@ function create_fragment$6(ctx) {
 			var div3_nodes = children(div3);
 			div2 = claim_element(div3_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
+			div1 = claim_element(div2_nodes, "DIV", { class: true, id: true });
 			var div1_nodes = children(div1);
 			div0 = claim_element(div1_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
@@ -4300,6 +4300,7 @@ function create_fragment$6(ctx) {
 		h() {
 			attr(div0, "class", "items svelte-19cnxo1");
 			attr(div1, "class", "section-container");
+			attr(div1, "id", "contact");
 			attr(div2, "class", "component");
 			attr(div3, "class", "section");
 			attr(div3, "id", "section-d7fc9a2c-70d7-492f-aa9a-11849031a601");
@@ -4472,7 +4473,11 @@ function create_fragment$7(ctx) {
 					},
 					"title": "Rachael Sales Photography"
 				},
-				site_nav: [],
+				site_nav: [
+					{
+						"link": { "label": "Contact Me", "url": "#contact" }
+					}
+				],
 				footer_links: [
 					{
 						"link": { "url": "/work", "label": "Work" }
