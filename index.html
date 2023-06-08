@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="generator" content="Primo" />
+    <!-- HEAD_svelte-1funr7q_START -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <style>
+        /* Reset & standardize default styles */
+        @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+        /* Design tokens (apply to components) */
+        :root {
+            /* Custom theme options */
+            --color-accent: rebeccapurple;
+
+            /* Base values */
+            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 8px;
+            --border-color: #cbcace;
+        }
+
+        /* Root element (use instead of `body`) */
+        #page {
+            font-family: system-ui, sans-serif;
+            color: white;
+            line-height: 1.2;
+            font-size: 1.125rem;
+            background: black;
+        }
+
+        /* Elements */
+        .section-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        a.link {
+            line-height: 1.3;
+            font-weight: 400;
+            border-bottom: 2px solid;
+            transform: translateY(-2px);
+            /* move link back into place */
+            transition: var(--transition, 0.1s border);
+        }
+
+        a.link:hover {
+            border-color: transparent;
+        }
+
+        .heading {
+            font-size: clamp(2rem, 10vw, 3rem);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .button {
+            color: #111;
+            font-size: 1rem;
+            background: white;
+            border-radius: 2rem;
+            padding: 18px 28px;
+            transition: var(--transition, 0.1s box-shadow);
+            border: 0;
+        }
+
+        /* reset */
+
+        .button:hover {
+            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+        }
+
+        .button.is-inverted {
+            background: black;
+            color: white;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            line-height: 1.4;
+            font-size: 2rem;
+        }
+
+        .content>* {
+            max-width: 600px;
+        }
+
+        .content p {
+            padding: 0.25rem 0;
+        }
+
+        .content img {
+            width: 100%;
+            margin: 2rem 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .content a.link {}
+
+        .content h1 {
+            font-size: 3.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .content h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .content h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .content ul {
+            list-style: disc;
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .content ol {
+            list-style: decimal;
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .content blockquote {
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .content h1 {
+            padding-top: 10rem;
+            max-width: 800px;
+        }
+    </style><!-- HEAD_svelte-1funr7q_END -->
+    <style>
+        .section-container.svelte-sip8mq.svelte-sip8mq {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .logo.svelte-sip8mq.svelte-sip8mq {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2
+        }
+
+        .desktop-nav.svelte-sip8mq.svelte-sip8mq {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%
+        }
+
+        .desktop-nav.svelte-sip8mq nav.svelte-sip8mq {
+            display: flex;
+            gap: 2rem
+        }
+
+        .desktop-nav.svelte-sip8mq nav a.link.svelte-sip8mq {
+            border-color: transparent;
+            transition: border-color 0.1s;
+            font-size: 0.95rem
+        }
+
+        .desktop-nav.svelte-sip8mq nav a.link.svelte-sip8mq:hover {
+            border-color: initial
+        }
+
+        @media(min-width: 800px) {
+            .desktop-nav.svelte-sip8mq.svelte-sip8mq {
+                display: flex
+            }
+        }
+
+        .mobile-nav.svelte-sip8mq.svelte-sip8mq {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 500
+        }
+
+        @media(min-width: 800px) {
+            .mobile-nav.svelte-sip8mq.svelte-sip8mq {
+                display: none
+            }
+        }
+
+        #popup.svelte-sip8mq.svelte-sip8mq {
+            font-size: 1.25rem;
+            display: grid;
+            gap: 1rem;
+            position: absolute;
+            text-align: center;
+            background-color: var(--background-color, white);
+            box-shadow: var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));
+            border-radius: var(--border-radius);
+            inset: 0.5rem;
+            bottom: initial;
+            padding: 2rem;
+            z-index: 1;
+            color: black
+        }
+
+        #popup.svelte-sip8mq button#close.svelte-sip8mq {
+            position: absolute;
+            right: 1rem;
+            top: 1rem
+        }
+
+        .section-container.svelte-1au42aa {
+            padding: 5rem 2rem 3rem 2rem
+        }
+
+        @media(min-width: 900px) {
+            .section-container.svelte-1au42aa {
+                padding: 10rem 2rem 5rem 2rem
+            }
+        }
+
+        .headline.svelte-1au42aa {
+            font-size: clamp(3rem, 10vw, 4.5rem);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding-top: 10rem;
+            max-width: 1100px
+        }
+
+        .section-container.svelte-10d0ff7.svelte-10d0ff7 {
+            padding-block: 1rem
+        }
+
+        .items.svelte-10d0ff7.svelte-10d0ff7 {
+            display: grid;
+            gap: 6rem
+        }
+
+        @media(min-width: 800px) {
+            .items.svelte-10d0ff7.svelte-10d0ff7 {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .item.svelte-10d0ff7.svelte-10d0ff7 {
+            display: grid;
+            place-content: start
+        }
+
+        .item.svelte-10d0ff7 img.svelte-10d0ff7 {
+            width: 100%;
+            margin-bottom: 1rem
+        }
+
+        .item.svelte-10d0ff7 .body.svelte-10d0ff7 {
+            display: grid;
+            place-items: flex-start;
+            line-height: 1.5
+        }
+
+        .item.svelte-10d0ff7 .body .title.svelte-10d0ff7 {
+            font-size: 1.75rem
+        }
+
+        .section-container.svelte-10d0ff7.svelte-10d0ff7 {
+            padding-block: 1rem
+        }
+
+        .items.svelte-10d0ff7.svelte-10d0ff7 {
+            display: grid;
+            gap: 6rem
+        }
+
+        @media(min-width: 800px) {
+            .items.svelte-10d0ff7.svelte-10d0ff7 {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .item.svelte-10d0ff7.svelte-10d0ff7 {
+            display: grid;
+            place-content: start
+        }
+
+        .item.svelte-10d0ff7 img.svelte-10d0ff7 {
+            width: 100%;
+            margin-bottom: 1rem
+        }
+
+        .item.svelte-10d0ff7 .body.svelte-10d0ff7 {
+            display: grid;
+            place-items: flex-start;
+            line-height: 1.5
+        }
+
+        .item.svelte-10d0ff7 .body .title.svelte-10d0ff7 {
+            font-size: 1.75rem
+        }
+
+        .items.svelte-19cnxo1 {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+        }
+
+        .item.svelte-19cnxo1 {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            gap: 1rem
+        }
+
+        .title.svelte-19cnxo1 {
+            font-size: 1.25rem
+        }
+
+        .link.svelte-19cnxo1 {
+            font-size: 1.75rem
+        }
+    </style>
+</head>
+
+<body id="page">
+
+    <div class="section" id="section-9b946b05-b8be-4a6c-bdc8-c4be7131a9bb">
+        <div class="component">
+            <header class="section-container svelte-sip8mq">
+                <div class="desktop-nav svelte-sip8mq"><a href="/" class="logo svelte-sip8mq">Rachael Sales Photography</a>
+                    <nav class="svelte-sip8mq"></nav>
+                </div>
+                <div class="mobile-nav svelte-sip8mq"><a href="/" class="logo svelte-sip8mq">Rachael Sales Photography</a>
+                    <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START -->
+                            <g id="iconifySvelte0">
+                                <g id="iconifySvelte1">
+                                    <g id="iconifySvelte2" fill="currentColor">
+                                        <rect width="18" height="2" x="3" y="11" rx=".95" ry=".95" />
+                                        <rect width="18" height="2" x="3" y="16" rx=".95" ry=".95" />
+                                        <rect width="18" height="2" x="3" y="6" rx=".95" ry=".95" />
+                                    </g>
+                                </g>
+                            </g><!-- HTML_TAG_END -->
+                        </svg></button>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="section" id="section-ad62861a-cea3-4fbb-83f7-18e475545173">
+        <div class="component">
+            <section class="section-container svelte-1au42aa">
+                <h1 class="headline svelte-1au42aa">Rachael Sales is a professional photographer that takes killer pictures and photographs</h1>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-2e9c592f-d990-4da7-8299-b404a3db33d6">
+        <div class="component">
+            <section class="section-container svelte-10d0ff7">
+                <div class="items svelte-10d0ff7">
+                    <div class="item svelte-10d0ff7"><img src="https://xbbsucyophhfhyzxwylg.supabase.co/storage/v1/object/public/images/1b7af7be-2bb6-4d71-8f20-27b0826608fa/IMG_9357.jpg1686262802185" alt="" class="svelte-10d0ff7">
+                        <div class="body svelte-10d0ff7">
+                            <h2 class="title svelte-10d0ff7">Things</h2>
+                            <div class="description"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></div>
+                        </div>
+                    </div>
+                    <div class="item svelte-10d0ff7"><img src="https://xbbsucyophhfhyzxwylg.supabase.co/storage/v1/object/public/images/1b7af7be-2bb6-4d71-8f20-27b0826608fa/DSCF0136.JPG1686262720364" alt="" class="svelte-10d0ff7">
+                        <div class="body svelte-10d0ff7">
+                            <h2 class="title svelte-10d0ff7">Children</h2>
+                            <div class="description"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-74ef335f-4602-4f88-bc45-25a67b2480ff">
+        <div class="component">
+            <section class="section-container svelte-10d0ff7">
+                <div class="items svelte-10d0ff7">
+                    <div class="item svelte-10d0ff7"><img src="https://xbbsucyophhfhyzxwylg.supabase.co/storage/v1/object/public/images/1b7af7be-2bb6-4d71-8f20-27b0826608fa/IMG_8141.JPG1686262925223" alt="" class="svelte-10d0ff7">
+                        <div class="body svelte-10d0ff7">
+                            <h2 class="title svelte-10d0ff7">Couples</h2>
+                            <div class="description"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></div>
+                        </div>
+                    </div>
+                    <div class="item svelte-10d0ff7"><img src="https://xbbsucyophhfhyzxwylg.supabase.co/storage/v1/object/public/images/1b7af7be-2bb6-4d71-8f20-27b0826608fa/041723-187.JPG1686262844272" alt="" class="svelte-10d0ff7">
+                        <div class="body svelte-10d0ff7">
+                            <h2 class="title svelte-10d0ff7">Abstract</h2>
+                            <div class="description"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="section" id="section-d7fc9a2c-70d7-492f-aa9a-11849031a601">
+        <div class="component">
+            <div class="section-container">
+                <div class="items svelte-19cnxo1">
+                    <div class="item svelte-19cnxo1"><span class="title svelte-19cnxo1">Email</span>
+                        <a href="mailto:rachsalesaway@gmail.com" class="link svelte-19cnxo1">Contact Me</a>
+                    </div>
+                    <div class="item svelte-19cnxo1"><span class="title svelte-19cnxo1">Instagram</span>
+                        <a href="https://www.instagram.com/rach_sales/?hl=en" class="link svelte-19cnxo1">Follow Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        const path = window.location.pathname === '/' ? '' : window.location.pathname
+        const [{
+            default: App
+        }] = await Promise.all([
+            import(path + '/_module.js')
+        ]).catch(e => console.error(e))
+        new App({
+            target: document.querySelector('body'),
+            hydrate: true,
+        })
+    </script>
+</body>
+
+</html>
